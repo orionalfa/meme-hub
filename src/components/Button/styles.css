@@ -1,0 +1,14 @@
+.button {
+  margin-top: 1rem;
+  padding: 0.5em 4rem;
+  border: 1px solid pink;
+  border-radius: 8px;
+  background-color: purple;
+  color: white;
+}
+
+.button:hover {
+  background-color: pink;
+  border: 2px solid purple;
+  color: purple;
+}

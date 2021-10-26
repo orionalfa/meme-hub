@@ -41,7 +41,9 @@ body {
 
 main {
   padding-top: 2rem;
-  width: 100vw;
+  margin-left: 15%;
+  width: 70%;
+  min-width: 500px;
   padding-bottom: 12vh;
 }
 
@@ -63,9 +65,6 @@ main {
 }
 
 h1 {
-  padding-top: 2rem;
-  padding-left: 2rem;
-  font-size: 3rem !important;
   color: white;
 }
 
