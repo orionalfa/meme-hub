@@ -24,7 +24,6 @@ function Register() {
 
   const registerNewUser = () => {};
   const registerInApi = () => {};
-  const getByEmail = () => {};
 
   //Manage values of state properties
   function handleChange(e) {
