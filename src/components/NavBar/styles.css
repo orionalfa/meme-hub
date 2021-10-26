@@ -1,0 +1,16 @@
+nav {
+  width: 100%;
+  background-color: black;
+  color: pink;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+nav > div > div > div > a {
+  text-decoration: none;
+  color: pink;
+}
+
+nav > div > div > div > a:hover {
+  color: purple;
+}

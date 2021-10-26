@@ -6,12 +6,13 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import NavBar from "./components/NavBar";
 
-//Redux actions
 function App() {
   return (
     <>
       <BrowserRouter>
+        <NavBar />
         <Switch>
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
