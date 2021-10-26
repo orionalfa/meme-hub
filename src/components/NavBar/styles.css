@@ -4,13 +4,20 @@ nav {
   color: pink;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  position: fixed;
 }
 
-nav > div > div > div > a {
+nav > div > div > a {
   text-decoration: none;
   color: pink;
 }
 
-nav > div > div > div > a:hover {
+nav > div {
+  width: 70%;
+  margin-left: 15% !important;
+  --bs-gutter-x: 0rem !important;
+}
+
+nav > div > div > a:hover {
   color: purple;
 }
