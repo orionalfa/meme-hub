@@ -5,6 +5,12 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "./services/firebaseConfig";
+
+// Initialize Firebase
+const fbapp = initializeApp(firebaseConfig);
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

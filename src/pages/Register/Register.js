@@ -2,8 +2,9 @@
 import React, { useState, useRef } from "react";
 
 import * as $ from "jquery";
-// import { registerNewUser } from "../../services/firebase";
-// import { registerInApi, getByEmail } from "../../services/api/index";
+import { registerNewUser } from "../../services/firebase";
+import { registerInApi, getByEmail } from "../../services/apiUsers";
+import { Redirect } from "react-router";
 
 //Import components
 import { Row, Col } from "react-bootstrap";
@@ -13,6 +14,7 @@ import validate from "jquery-validation";
 
 function Register() {
   const formRegister = useRef();
+  const [registerSuccess, setRegisterSuccess] = useState(false);
   const [registerData, setRegisterData] = useState({
     firstname: "",
     lastname: "",
@@ -21,9 +23,6 @@ function Register() {
     password: "",
     confirmPassword: "",
   });
-
-  const registerNewUser = () => {};
-  const registerInApi = () => {};
 
   //Manage values of state properties
   function handleChange(e) {
@@ -57,10 +56,16 @@ function Register() {
         const { email, password, confirmPassword } = registerData;
         if (confirmPassword === password) {
           console.log("submit ", registerData);
-          const { user } = await registerNewUser(email, password);
-          console.log("the userFirebase: ", user);
-          const userApi = await registerInApi(registerData, user.uid);
-          console.log("the userApi: ", userApi);
+          const { data } = await getByEmail(registerData.email);
+          console.log(data.currentUser);
+          if (data.currentUser) {
+            alert("email already in use");
+          } else {
+            const { user } = await registerNewUser(email, password);
+            const userApi = await registerInApi(registerData, user.uid);
+            console.log("the userApi: ", userApi);
+            setRegisterSuccess(true);
+          }
         } else {
           console.log("los datos no coinciden");
         }
@@ -68,7 +73,9 @@ function Register() {
     });
   }
 
-  return (
+  return registerSuccess ? (
+    <Redirect to="/" />
+  ) : (
     <main>
       <Row>
         <Col xs={12} md={6} className="">
