@@ -5,6 +5,8 @@ import * as $ from "jquery";
 import { registerNewUser } from "../../services/firebase";
 import { registerInApi, getByEmail } from "../../services/apiUsers";
 import { Redirect } from "react-router";
+import { useDispatch } from "react-redux";
+import { setUserLogged } from "../../redux/userData/actions";
 
 //Import components
 import { Row, Col } from "react-bootstrap";
@@ -14,6 +16,8 @@ import validate from "jquery-validation";
 
 function Register() {
   const formRegister = useRef();
+  const dispatch = useDispatch();
+
   const [registerSuccess, setRegisterSuccess] = useState(false);
   const [registerData, setRegisterData] = useState({
     firstname: "",
@@ -64,6 +68,7 @@ function Register() {
             const { user } = await registerNewUser(email, password);
             const userApi = await registerInApi(registerData, user.uid);
             console.log("the userApi: ", userApi);
+            dispatch(setUserLogged());
             setRegisterSuccess(true);
           }
         } else {

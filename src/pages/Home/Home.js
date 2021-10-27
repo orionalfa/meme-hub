@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 
-import { useSelector } from "react-redux";
-
 import HomeImg from "../../components/HomeImg";
 import { getRandomGif } from "../../services/apiGiphy";
 
@@ -13,8 +11,6 @@ import { getRandomGif } from "../../services/apiGiphy";
 function Home() {
   const [gifsLoading, setGifsLoaded] = useState(true);
   const [gifsArray, setGifsArray] = useState([]);
-
-  const isLoggedIn = useSelector((state) => state.isAuthorized);
 
   async function gifSeed() {
     let gifsResponse = [];

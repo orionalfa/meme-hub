@@ -10,7 +10,7 @@ import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./services/firebaseConfig";
 
 // Initialize Firebase
-const fbapp = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <React.StrictMode>
